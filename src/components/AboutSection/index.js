@@ -24,7 +24,7 @@ const AboutSection = () => {
                 <img src={home1} alt="Guy wit camera"/>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default AboutSection;
