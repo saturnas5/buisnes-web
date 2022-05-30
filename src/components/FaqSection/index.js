@@ -1,44 +1,41 @@
-import React from "react";
+import React, {useState} from "react";
 import styled from 'styled-components'
 import {StyledAbout} from "../../styles";
+import Toggle from "../Toggle";
+import {AnimateSharedLayout} from "framer-motion";
 
 const FaqSection = () => {
+    const [faqToggle, setFaqToggle] = useState(false)
 
     return (
         <StyledFaq>
             <h2>Any Questions <span>FAQ</span></h2>
-            <div className="quastion">
-                <h4>How Do I Start?</h4>
+            <AnimateSharedLayout>
+            <Toggle title='How Do I Start?'>
                 <div className="answer">
                     <p>Lorem ipsum dolor sit amet.</p>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, reprehenderit.</p>
                 </div>
-                <div className="faq-line"></div>
-            </div>
-            <div className="quastion">
-                <h4>Daily Schedule</h4>
+            </Toggle>
+            <Toggle title='Daily Schedule'>
                 <div className="answer">
                     <p>Lorem ipsum dolor sit amet.</p>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, reprehenderit.</p>
                 </div>
-                <div className="faq-line"></div>
-            </div>
-            <div className="quastion">
-                <h4>Diferrent Payment Methods</h4>
+            </Toggle>
+            <Toggle title='Diferrent Payment Methods'>
                 <div className="answer">
                     <p>Lorem ipsum dolor sit amet.</p>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, reprehenderit.</p>
                 </div>
-                <div className="faq-line"></div>
-            </div>
-            <div className="quastion">
-                <h4>What you Offer?</h4>
+            </Toggle>
+            <Toggle title='What you Offer?'>
                 <div className="answer">
                     <p>Lorem ipsum dolor sit amet.</p>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, reprehenderit.</p>
                 </div>
-                <div className="faq-line"></div>
-            </div>
+            </Toggle>
+            </AnimateSharedLayout>
         </StyledFaq>
     );
 };
@@ -64,7 +61,9 @@ const StyledFaq = styled(StyledAbout)`
   
   .question {
     padding: 3rem 0;
-    cursor: pointer;
+    &:hover {
+      cursor: pointer;
+    }
   }
   
   .answer {
