@@ -5,11 +5,16 @@ import money from '../../img/money.svg';
 import teamwork from '../../img/teamwork.svg';
 import home2 from '../../img/home2.png';
 import { StyledAbout, StyledDescription, StyledHide, StyledImage } from "../../styles";
+import {scrollAnim} from "../../Animations/animation";
 import styled from 'styled-components';
+import {useScroll} from "../../hooks/useScroll";
+
 
 const ServicesSection = () => {
+    const [element, controls] = useScroll();
+
     return (
-        <StyledServices>
+        <StyledServices ref={element} animate={controls} initial='hidden' variants={scrollAnim} exit='exit'>
             <StyledDescription>
                 <h2>High <span>quality</span> services</h2>
                 <StyledCards>
