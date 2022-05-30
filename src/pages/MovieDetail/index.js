@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import {useHistory} from 'react-router-dom';
 import {MovieState} from "../../movieState";
 import Award from "../../components/Award";
+import {motion} from "framer-motion";
+import {pageAnimation} from "../../Animations/animation";
 
 
 const MovieDetail = () => {
@@ -18,7 +20,7 @@ const MovieDetail = () => {
 
     return (
         <>
-            {movie && <StyledDetails>
+            {movie && <StyledDetails variants={pageAnimation} initial='hidden' animate='show' exit='exit'>
                 <StyledHeadLine>
                     <h2>{movie.title}</h2>
                     <img src={movie.mainImg} alt=""/>
@@ -36,7 +38,7 @@ const MovieDetail = () => {
     );
 };
 
-const StyledDetails = styled.div`
+const StyledDetails = styled(motion.div)`
   color: #fff;
 `
 
